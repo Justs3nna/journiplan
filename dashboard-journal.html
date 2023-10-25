@@ -16,26 +16,60 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/icon1.png">
     <title>JourniPlan - Journal</title>
+    
 </head>
 <body>
 
-  
+    <nav class="p-4 fixed top-0 left-0 w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <ul class="flex space-x-4 py-1">
+                <li><a href="#">Journal</a></li>
+                <li><a href="entries.html">Entries</a></li>
+                <li><a href="to-do-list.html">To - do List</a></li>
+                <li><a href="habit-tracker.html">Habit Tracker</a></li>
+                <li><a href="index.html">Log Out</a></li>
+            </ul>
+    
+            <div class="ml-auto flex space-x-3" style="margin-top: -45px; margin-bottom:-10px">
+                <div class="dropdown dropdown-left">
+                    <label tabindex="0" class="btn m-1">
+                        <i class='bx bxs-palette bx-xs'></i> <!-- Make the icon smaller -->
+                    </label>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36"> <!-- Reduce the width -->
+                        <li class="theme-item" theme="cupcake"><a>Cupcake</a></li>
+                        <li class="theme-item" theme="dark"><a>Dark</a></li>
+                        <li class="theme-item" theme="light"><a>Light</a></li>
+                        <li class="theme-item" theme="bumblebee"><a>Bumblebee</a></li>
+                        <li class="theme-item" theme="synthwave"><a>Synthwave</a></li>
+                        <li class="theme-item" theme="halloween"><a>Halloween</a></li>
+                        <li class="theme-item" theme="fantasy"><a>Fantasy</a></li>
+                        <li class="theme-item" theme="dracula"><a>Dracula</a></li>
+                        <li class="theme-item" theme="aqua"><a>Aqua</a></li>
+                        <li class="theme-item" theme="luxury"><a>Luxury</a></li>
+                        <li class="theme-item" theme="night"><a>Night</a></li>
+                    </ul>
+                </div>
+                <!-- End of Smaller Theme Switcher Dropdown -->
+            </div>
+        </div>
+    </nav>
+    
+     
 <div class="container">
-  <header>
-    <h1>Journal Entry</h1>
-    <!-- Error message -->
-    <div class="alert-message"></div>
-    <div class="input-section">
-        <input type="text" placeholder="Title" class="input input-bordered input-secondary w-full max-w-xs" id="journal-title" />
-        <input type="date" class="input input-bordered input-secondary max-w-xs" id="journal-date" value="yyyy-mm-dd" required />
-        <button class="btn btn-secondary add-journal-button" onclick="saveJournalEntry()">
-            Save
-        </button>
-    </div>
+    <header>
+        <h1>Journal Entry</h1>
+        <!-- Error message -->
+        <div class="alert-message"></div>
+        <div class="input-section">
+            <input type="text" placeholder="Title" class="input input-bordered input-secondary w-full max-w-xs" id="journal-title" />
+            <input type="date" class="input input-bordered input-secondary max-w-xs" id="journal-date" value="yyyy-mm-dd" required />
+            <button class="btn btn-secondary add-journal-button" onclick="saveJournalEntry()">
+                Save
+            </button>
+        </div>
 
-    <textarea placeholder="Write your journal entry..." class="input input-bordered input-secondary w-full mt-3" id="journal-note" rows="8"></textarea>
-</header>
-
+        <textarea placeholder="Write your journal entry..." class="input input-bordered input-secondary w-full h-full mt-3 p-5" id="journal-note" rows="8"></textarea>
+    </header>
 
     <div class="journal-entries">
         <div class="entry-list" id="journal-list">
@@ -44,33 +78,11 @@
     </div>
 </div>
 
-<!-- Theme switcher -->
-<div class="theme-switcher">
-    <div class="dropdown dropdown-left">
-        <label tabindex="0" class="btn m-1">
-            <i class='bx bxs-palette bx-sm'></i>
-        </label>
-        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-            <li class="theme-item" theme="cupcake"><a>cupcake</a></li>
-            <li class="theme-item" theme="dark"><a>dark</a></li>
-            <li class="theme-item" theme="light"><a>light</a></li>
-            <li class="theme-item" theme="bumblebee"><a>bumblebee</a></li>
-            <li class="theme-item" theme="synthwave"><a>synthwave</a></li>
-            <li class="theme-item" theme="halloween"><a>halloween</a></li>
-            <li class="theme-item" theme="fantasy"><a>fantasy</a></li>
-            <li class="theme-item" theme="dracula"><a>dracula</a></li>
-            <li class="theme-item" theme="aqua"><a>aqua</a></li>
-            <li class="theme-item" theme="luxury"><a>luxury</a></li>
-            <li class="theme-item" theme="night"><a>night</a></li>
-        </ul>
-    </div>
-</div>
+<!-- Your JavaScript files go here -->
+<script src="js/maintdl.js"></script>
+    <script src="js/theme_switcher.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.6.0/dist/js/bootstrap.min.js"></script>
 
-</script>
-<script src="js/mainjourn.js"></script>
-<script src="js/mainjournal.js"></script>
-<script src="js/theme_switcher.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.6.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

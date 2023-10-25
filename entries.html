@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="bumblebee">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/stylestdl.css">
+
+    <!-- Tailwind CSS & Daisy UI CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.18.0/dist/full.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.6.0/dist/css/bootstrap.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icon1.png">
+    <title>JourniPlan - Entries</title>
+</head>
+<body>
+    <nav class="p-4 fixed top-0 left-0 w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <ul class="flex space-x-4 py-1">
+                <li><a href="dashboard-journal.html">Journal</a></li>
+                <li><a href="#">Entries</a></li>
+                <li><a href="to-do-list.html">To - do List</a></li>
+                <li><a href="habit-tracker.html">Habit Tracker</a></li>
+                <li><a href="index.html">Log Out</a></li>
+            </ul>
+            <div class="ml-auto flex space-x-3" style="margin-top: -45px; margin-bottom:-10px">
+                <div class="dropdown dropdown-left">
+                    <label tabindex="0" class="btn m-1" style="line-height: 0;">
+                        <i class='bx bxs-palette bx-xs'></i> <!-- Make the icon smaller -->
+                    </label>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36"> <!-- Reduce the width -->
+                        <li class="theme-item" theme="cupcake"><a style="line-height: 1;">Cupcake</a></li>
+                        <li class="theme-item" theme="dark"><a style="line-height: 1;">Dark</a></li>
+                        <li class="theme-item" theme="light"><a style="line-height: 1;">Light</a></li>
+                        <li class="theme-item" theme="bumblebee"><a style="line-height: 1;">Bumblebee</a></li>
+                        <li class="theme-item" theme="synthwave"><a style="line-height: 1;">Synthwave</a></li>
+                        <li class="theme-item" theme="halloween"><a style="line-height: 1;">Halloween</a></li>
+                        <li class="theme-item" theme="fantasy"><a style="line-height: 1;">Fantasy</a></li>
+                        <li class="theme-item" theme="dracula"><a style="line-height: 1;">Dracula</a></li>
+                        <li class="theme-item" theme="aqua"><a style="line-height: 1;">Aqua</a></li>
+                        <li class="theme-item" theme="luxury"><a style="line-height: 1;">Luxury</a></li>
+                        <li class="theme-item" theme="night"><a style="line-height: 1;">Night</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Journal Entries</h1>
+        <div class="journal-entries">
+            <div class="entry-list">
+                <!-- Example entry -->
+                <div class="entry">
+                    <h2>Entry Title 1</h2>
+                    <p>Date: yyyy-mm-dd</p>
+                    <p>This is the content of the journal entry.</p>
+                    <button class="btn btn-primary edit-entry">Edit</button>
+                    <button class="btn btn-danger delete-entry">Delete</button>
+                </div>
+                <!-- Add more entries as needed -->
+            </div>
+        </div>
+    </div>
+    <script src="js/maintdl.js"></script>
+    <script src="js/theme_switcher.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="js/maintdl.js"></script>
+    <script src="js/theme_switcher.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.6.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        // Function to display journal entries
+        function displayEntries() {
+            const entryList = document.querySelector(".entry-list");
+            entryList.innerHTML = "";
+
+            const storedEntries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+
+            storedEntries.forEach((entry, index) => {
+                const entryDiv = document.createElement("div");
+                entryDiv.className = "entry";
+
+                entryDiv.innerHTML = `
+                    <h2>${entry.title}</h2>
+                    <p>Date: ${entry.date}</p>
+                    <p>${entry.content}</p>
+                    <button class="btn btn-primary edit-entry" onclick="editEntry(${index})">Edit</button>
+                    <button class="btn btn-danger delete-entry" onclick="deleteEntry(${index})">Delete</button>
+                `;
+
+                entryList.appendChild(entryDiv);
+            });
+        }
+
+        // Function to edit an entry
+        function editEntry(index) {
+            // Implement logic to open an edit form with existing data
+            // For example, you can display a modal with a form for editing
+            // Populate the form with the journal entry data
+        }
+
+        // Function to delete an entry
+        function deleteEntry(index) {
+            // Implement logic to delete the entry at the specified index
+            const storedEntries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+            storedEntries.splice(index, 1);
+            localStorage.setItem("journalEntries", JSON.stringify(storedEntries));
+            displayEntries(); // Refresh the entries on the page
+        }
+
+        // Initial display of journal entries
+        displayEntries();
+    </script>
+    <!-- Your JavaScript files go here -->
+    <script src="js/maintdl.js"></script>
+    <script src="js/theme_switcher.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.6.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
