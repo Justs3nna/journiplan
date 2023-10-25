@@ -1,0 +1,8 @@
+fix journal, ang pag display. 
+- dapat plastar and dapat naay pop up when editing an entry para kato rang entry imo makita.
+- pataason ang text area sa note. ambot nganu di mugana ang add rows
+- nav bar bai para ma navigate nato ang uban features tapos logout sab and account settings
+
+
+sa to do list kay okay naman to
+
